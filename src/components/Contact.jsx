@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useRef } from "react";
 import toast from "react-hot-toast";
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaWhatsapp,
+} from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+    const form = useRef()
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    emailjs
+      .sendForm("service_4c4nurf", "template_y5qxflc", form.current, {
+        publicKey: "GD3dTSoWaPJYC0UAZ",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+
     // Get form data
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const message = e.target.message.value;
+    // const name = e.target.name.value;
+    // const email = e.target.email.value;
+    // const message = e.target.message.value;
 
     // Example submission logic (you can replace it with API calls)
     toast.success(`Thank you, ${name}! Your message has been sent.`);
@@ -24,16 +44,19 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Contact Form */}
         <div className="bg-gray-900 p-8 rounded-lg shadow-lg animate-fadeIn">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form ref={form} onSubmit={handleSubmit} className="space-y-6">
             {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-gray-300 mb-2 font-semibold">
+              <label
+                htmlFor="name"
+                className="block text-gray-300 mb-2 font-semibold"
+              >
                 Name
               </label>
               <input
                 type="text"
                 id="name"
-                name="name"
+                name="from_name"
                 placeholder="Your Name"
                 className="input input-bordered w-full bg-gray-800 text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 required
@@ -42,13 +65,16 @@ const Contact = () => {
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-gray-300 mb-2 font-semibold">
+              <label
+                htmlFor="email"
+                className="block text-gray-300 mb-2 font-semibold"
+              >
                 Email
               </label>
               <input
                 type="email"
                 id="email"
-                name="email"
+                name="from_email"
                 placeholder="Your Email"
                 className="input input-bordered w-full bg-gray-800 text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 required
@@ -57,7 +83,10 @@ const Contact = () => {
 
             {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-gray-300 mb-2 font-semibold">
+              <label
+                htmlFor="message"
+                className="block text-gray-300 mb-2 font-semibold"
+              >
                 Message
               </label>
               <textarea
@@ -116,7 +145,9 @@ const Contact = () => {
             <FaMapMarkerAlt className="text-red-500 text-2xl" />
             <div>
               <h2 className="text-gray-300 font-semibold text-lg">Location</h2>
-              <p className="text-gray-400">Shatarkul Badda, Dhaka, BNagladesh</p>
+              <p className="text-gray-400">
+                Shatarkul Badda, Dhaka, BNagladesh
+              </p>
             </div>
           </div>
         </div>
