@@ -1,0 +1,70 @@
+[
+  {
+    "projectName": "Share Plates",
+    "projectImage": "https://i.ibb.co.com/4MCGK06/Screenshot-2025-01-05-050134.png",
+    "mainTechStack": ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+    "id": 1,
+    "briefDescription": "A fully functional Food donation platform where users can donates foods and and who needs it he/she can get it.",
+    "liveLink": "https://food-sharing-8045e.web.app/",
+    "githubLink": "https://github.com/programming-hero-web-course2/b10a11-client-side-shoyonp",
+    "details": "This is a food sharing website form this website a user can post a fodd who wants to share foods with outhers this food charges no amount a hungry person or who needs the food the that person can take the food form here he/she can request the food it help many poor people who had no money to buy foods.",
+    "challengesFaced": [
+      "Optimizing product search functionality for large datasets.",
+      "Implementing secure payment gateways while avoiding latency.",
+      "Creating a responsive design for a better user experience."
+    ],
+    "improvements": [
+      "Adding support for multiple languages.",
+      "Adding comunication system.",
+      "Improving the checkout experience with predictive suggestions."
+    ]
+  },
+  {
+    "projectName": "Movie BD",
+    "projectImage": "https://i.ibb.co.com/RTw7swx/Screenshot-2025-01-05-050057.png",
+    "mainTechStack": [
+      "React",
+      "TailwindCSS",
+      "DaisyUI",
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "id": 2,
+    "briefDescription": "Movie BD is a user-friendly platform designed for movie enthusiasts to discover, explore, and learn about movies.Users can browse top-rated movies, search for their favorite films, and stay updated on the latest releases in Bangladeshi cinema and beyond.",
+    "liveLink": "https://movie-portal-c9fe0.web.app/",
+    "githubLink": "https://github.com/programming-hero-web-course2/b10-a10-client-side-shoyonp",
+    "details": "This website is for Movies.User can watch movie from here . THey can but our membership.This website has dynamic movie cards.User can add movie,update movie.There are authentication if one user can add, update ,or want to see details then the user have to login/registration first",
+    "challengesFaced": [
+      "Designing a consistent and responsive layout for all screen sizes.",
+      "Integrating dynamic data fetching for blog posts and project updates.",
+      "Ensuring accessibility for all users, including those with disabilities."
+    ],
+    "improvements": [
+      "Adding a light/dark theme toggle for better user customization.",
+      "Including a blogging feature with a CMS for easy updates.",
+      "Optimizing for SEO to improve visibility in search engines.",
+      "bug fixing at the routing system"
+    ]
+  },
+  {
+    "projectName": "Gadget Heaven",
+    "projectImage": "https://i.ibb.co.com/ZBq36hY/Screenshot-2025-01-05-050021.png",
+    "mainTechStack": ["React", "Tailwing", "DaisyUI"],
+    "id": 3,
+    "briefDescription": "Gadget Heaven is your go-to platform for the latest gadget reviews, specs, and expert insights, helping you stay updated on the newest tech trends and make smarter purchase decisions.",
+    "liveLink": "https://celadon-beijinho-fe9448.netlify.app/",
+    "githubLink": "https://github.com/username/task-management-app",
+    "details": "Gadget Heaven is a modern online hub for gadget enthusiasts, offering the latest reviews, comparisons, and insights on cutting-edge technology. From smartphones and laptops to smartwatches and gaming gear, the platform helps users make informed decisions by providing detailed specifications, expert opinions, and user reviews. Gadget Heaven is the ultimate destination for staying updated on the newest tech trends and finding the perfect gadget to suit your needs.",
+    "challengesFaced": [
+      "Optimizing product search functionality for large datasets.",
+      "Implementing secure payment gateways while avoiding latency.",
+      "Creating a responsive design for a better user experience."
+    ],
+    "improvements": [
+      "Adding calendar integration for better task scheduling.",
+      "Adding database",
+      "Enhancing the UI with animations for better user interaction."
+    ]
+  }
+]
