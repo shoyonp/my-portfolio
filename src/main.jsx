@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   {
     path: "details/:id",
     element: <Detail></Detail>,
-    loader: () => fetch("project.json"),
+    loader: () => fetch("/projects.json"),
   },
 ]);
 createRoot(document.getElementById("root")).render(

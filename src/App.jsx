@@ -1,13 +1,10 @@
 import "./App.css";
 import AboutMe from "./components/AboutMe";
 import Contact from "./components/Contact";
-import Education from "./components/Education";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
-import ProjectCard from "./components/ProjectCard";
-import Skills from "./components/Skills";
-import SwiperProject from "./components/SwiperProject";
+import TabSection from "./components/TabSection";
 
 function App() {
   return (
@@ -16,11 +13,7 @@ function App() {
         <Navbar></Navbar>
         <Hero />
         <AboutMe />
-        <Skills />
-        <Education />
-        {/* <Experience /> */}
-        <SwiperProject></SwiperProject>
-        {/* <ProjectCard></ProjectCard> */}
+        <TabSection></TabSection>
         <Contact />
         <Footer />
       </div>

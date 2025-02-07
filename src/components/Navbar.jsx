@@ -1,32 +1,32 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const links = (
     <>
-      <li className="hover:text-yellow-500 transition-all duration-300">
-        <a href="">Home</a>
+      <li className="hover:text-[#ff014f] transition-all duration-300">
+        <a href="/">Home</a>
       </li>
-
-      <li className="hover:text-yellow-500 transition-all duration-300">
+      <li className="hover:text-[#ff014f] transition-all duration-300">
         <a href="#about">About Me</a>
       </li>
-      <li className="hover:text-yellow-500 transition-all duration-300">
-        <a href="#skills">My Skill</a>
+      <li className="hover:text-[#ff014f] transition-all duration-300">
+        <a href="#tab">Skills</a>
       </li>
-      <li className="hover:text-yellow-500 transition-all duration-300">
-        <a href="#education">My Education</a>
-      </li>
-      <li className="hover:text-yellow-500 transition-all duration-300">
-        <a href="#projects">Projects</a>
-      </li>
-      <li className="hover:text-yellow-500 transition-all duration-300">
-        <a href="#contact">Contect Me</a>
+      <li className="hover:text-[#ff014f] transition-all duration-300">
+        <a href="#contact">Contact Me</a>
       </li>
     </>
   );
+
   return (
-    <>
-      <div className="navbar fixed z-10 bg-opacity-0 bg-black text-white">
+    <div className="sticky top-0 z-10 bg-black text-white">
+      <motion.div
+        className="navbar w-11/12 mx-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,28 +47,56 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-gray-600 space-y-5 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-black space-y-5 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
-          <h1 className="text-xl font-semibold">
+          <motion.h1
+            className="text-xl font-semibold bg-gradient-to-r from-[#ff014f] to-[#b30f40] text-transparent bg-clip-text"
+            style={{ fontFamily: "'Roboto Slab', serif" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            whileHover={{
+              scale: 1.1,
+              textShadow:
+                "0px 0px 8px rgba(255, 1, 79, 0.7), 0px 0px 12px rgba(255, 1, 79, 0.7)",
+            }}
+          >
             <span className="text-[#ff014f]">My</span> Portfolio
-          </h1>
+          </motion.h1>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <motion.ul
+            className="menu menu-horizontal px-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 1 }}
+          >
+            {links}
+          </motion.ul>
         </div>
         <div className="navbar-end">
-          <a
+          <motion.a
             href="https://docs.google.com/document/d/1U90TQiHcD3iMbCMp5jvZ3eRtl5KMTAOFoOT27PmRlmE/edit?usp=sharing"
-            className="btn bg-gray-800 hover:bg-gray-900 border-none text-[#ff014f]"
+            className="btn bg-gradient-to-r from-[#ff014f] to-[#b30f40] text-white hover:bg-gradient-to-l border-none"
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0 0 20px rgba(255, 1, 79, 0.5)",
+              transition: { duration: 0.3 },
+            }}
+            whileTap={{
+              scale: 0.95,
+              boxShadow: "0 0 10px rgba(255, 1, 79, 0.3)",
+            }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             Download Resume
-          </a>
+          </motion.a>
         </div>
-      </div>
-    </>
+      </motion.div>
+    </div>
   );
 };
 

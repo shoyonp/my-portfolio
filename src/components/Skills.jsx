@@ -1,49 +1,49 @@
-import React from "react";
-import { FaHtml5, FaJs, FaNodeJs, FaReact } from "react-icons/fa";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { SiExpress, SiMongodb } from "react-icons/si";
-import { TiCss3 } from "react-icons/ti";
+import { motion } from "framer-motion";
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs } from "react-icons/fa";
+import { SiTailwindcss, SiExpress, SiFirebase, SiMongodb } from "react-icons/si";
+
+const skills = [
+  { name: "HTML", icon: <FaHtml5 className="text-red-500" /> },
+  { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-500" /> },
+  { name: "JavaScript", icon: <FaJsSquare className="text-yellow-500" /> },
+  { name: "React", icon: <FaReact className="text-cyan-500" /> },
+  { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+  { name: "Express.js", icon: <SiExpress className="text-gray-500" /> },
+  { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
+  { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 px-5 bg-black/95 mb-1">
-      <h2 className="text-4xl font-bold mb-5 text-white text-center">
-        My <span className="text-[#ff014f]">Skills</span>
-      </h2>
-      <div className="">
-        <div className="grid p-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5  lg:w-3/4 mx-auto md:w-11/12">
-          <p className="flex items-center gap-3 text-[#E34F26] text-3xl font-semibold text-center bg-black/30 rounded-md shadow-white/40 hover:shadow-red-600 shadow-lg px-6 py-8 transform transition duration-300 hover:scale-105">
-            <FaHtml5 />
-            <span>Html</span>
-          </p>
-          <p className="flex items-center gap-3 text-[#1572B6] text-3xl font-semibold  bg-black/30 rounded-md shadow-white/40 hover:shadow-blue-500 shadow-lg px-6 py-8 transform transition duration-300 hover:scale-105">
-            <TiCss3 />
-            <span>CSS</span>
-          </p>
-          <p className="flex items-center gap-3 text-[#F7DF1E] text-3xl font-semibold  bg-black/30 rounded-md shadow-white/40 hover:shadow-yellow-400 shadow-lg px-6 py-8 transform transition duration-300 hover:scale-105">
-            <FaJs />
-            <span>Java Script</span>
-          </p>
-          <p className="flex items-center gap-3 text-[#38B2AC] text-3xl font-semibold  bg-black/30 rounded-md shadow-white/40 hover:shadow-teal-500 shadow-lg px-6 py-8 transform transition duration-300 hover:scale-105">
-            <RiTailwindCssFill />
-            <span>Tailwind</span>
-          </p>
-          <p className="flex items-center gap-3 text-[#61DAFB] text-3xl font-semibold  bg-black/30 rounded-md shadow-white/40 hover:shadow-blue-400 shadow-lg px-6 py-8 transform transition duration-300 hover:scale-105">
-            <FaReact></FaReact> <span>React</span>
-          </p>
-          <p className="flex items-center gap-3 text-[#68A063] text-3xl font-semibold  bg-black/30 rounded-md shadow-white/40 hover:shadow-green-600 shadow-lg px-6 py-8 transform transition duration-300 hover:scale-105">
-            <FaNodeJs />
-            <span>Node Js</span>
-          </p>
-          <p className="flex items-center gap-3 text-white text-3xl font-semibold  bg-black/30 rounded-md shadow-white/40 hover:shadow-gray-900 shadow-lg px-6 py-8 transform transition duration-300 hover:scale-105">
-            <SiExpress />
-            <span>Express js</span>
-          </p>
-          <p className="flex items-center gap-3 text-[#47A248] text-3xl font-semibold  bg-black/30 rounded-md shadow-white/40 hover:shadow-green-500 shadow-lg px-6 py-8 transform transition duration-300 hover:scale-105">
-            <SiMongodb />
-            <span>Mongodb</span>
-          </p>
-        </div>
+    <section className="py-5 bg-black">
+      <div className="container mx-auto">
+        <motion.div
+          className="flex flex-wrap justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              className="m-4 p-6 bg-gray-900 rounded-lg shadow-lg text-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5"
+              key={index}
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <motion.div
+                className="text-5xl mb-4"
+                whileHover={{ scale: 1.2, rotate: -10 }}
+                transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+              >
+                {skill.icon}
+              </motion.div>
+              <span className="text-xl font-semibold text-gray-200">{skill.name}</span>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

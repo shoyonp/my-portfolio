@@ -1,55 +1,50 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation, Autoplay, Pagination } from "swiper/modules";
-import gadget from "../assets/gadget.png";
-import food from "../assets/food-sharing.png";
-import movie from "../assets/movie-portal.png";
-import Projects from "./Projects";
-const ProjectCard = (project) => {
-    console.log(project);
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { FaLongArrowAltRight } from "react-icons/fa";
+
+const ProjectCard = ({ project }) => {
+  // console.log(project);
   return (
-    <div>
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <Projects
-            name="Share Plates"
-            detail="A fully functional Food donation platform where users can donates foods and and who needs it he/she can get it."
-            img={food}
-            id={1}
-          ></Projects>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Projects
-            name="BD Movies"
-            detail="Movie BD is a user-friendly platform designed for movie enthusiasts to discover, explore, and learn about movies.Users can browse top-rated movies, search for their favorite films, and stay updated on the latest releases in Bangladeshi cinema and beyond."
-            img={movie}
-            id={2}
-          ></Projects>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Projects
-            name="Gadget Heaven"
-            detail="Gadget Heaven is your go-to platform for the latest gadget reviews, specs, and expert insights, helping you stay updated on the newest tech trends and make smarter purchase decisions."
-            img={gadget}
-            id={3}
-          ></Projects>
-        </SwiperSlide>
-      </Swiper>
-    </div>
+    <>
+     <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.4 }}
+      className="relative bg-gradient-to-br from-[#0a0a0a] via-[#161616] to-[#222] text-white rounded-lg shadow-xl overflow-hidden transform transition-transform duration-500 hover:shadow-[#ff014f]/60 w-96 h-[450px]"
+    >
+      {/* Project Image */}
+      <div className="relative overflow-hidden rounded-t-lg h-64">
+        <motion.img
+          src={project.projectImage}
+          alt={project.projectName}
+          className="w-full h-full object-cover rounded-t-lg hover:scale-110 transition-all duration-500"
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="absolute bottom-0 left-0 w-full bg-black/60 p-4 flex justify-center"
+        >
+          <Link
+            to={`/details/${project.id}`}
+            className="flex items-center gap-2"
+          >
+            View Details <FaLongArrowAltRight />
+          </Link>
+        </motion.div>
+      </div>
+
+      {/* Project Content */}
+      <div className="p-6 text-center bg-black/50 rounded-b-lg h-[170px] flex flex-col justify-center">
+        <h2 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#ff014f] to-[#b30f40] drop-shadow-lg">
+          {project.projectName}
+        </h2>
+        <p className="text-gray-300 mt-2 text-sm line-clamp-3">{project.briefDescription}</p>
+      </div>
+    </motion.div>
+      
+    </>
   );
 };
 
